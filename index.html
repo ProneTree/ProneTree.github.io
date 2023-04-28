@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>reminder</title>
+	<link href="https://fonts.cdnfonts.com/css/latin-modern-roman" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	<textarea id="reminder">
+
+	</textarea>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+	var textarea = $('#reminder');
+	textarea.keyup(function() {
+		var userInput = textarea.val();
+		localStorage.setItem('input', userInput);
+	});
+
+	var userInput = localStorage.getItem('input');
+	if (userInput) {
+		textarea.val(userInput);
+	}
+});
+
+var audio = new Audio("ding.mp3");
+audio.volume = 0.5;
+
+function reminder() {
+	alert(userInput);
+	audio.play();	
+}
+
+// run every 15 minutes
+setInterval(reminder, 15 * 60 * 1000);
+
+</script>
+<style>
+@import url('https://fonts.cdnfonts.com/css/latin-modern-roman');
+textarea {
+	font-family: 'LMRoman10', sans-serif;
+	font-size: medium;
+    display: block;
+	width: 500px;
+	height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
