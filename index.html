@@ -33,9 +33,16 @@ $(document).ready(function() {
 var audio = new Audio("ding.mp3");
 audio.volume = 0.5;
 
+$(document).ready(function() {
+  var context = new (window.AudioContext || window.webkitAudioContext)();
+  context.resume().then(function() {});
+});
+
 function reminder() {
-	alert(userInput);
-	audio.play();	
+	if (userInput && userInput.trim()) {
+		alert("TODO");
+		audio.play();	
+	}
 }
 
 // run every 15 minutes
