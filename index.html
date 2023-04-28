@@ -15,21 +15,6 @@
 </body>
 </html>
 <script>
-navigator.permissions.query({ name: 'microphone' })
-  .then(permissionStatus => {
-    if (permissionStatus.state === 'granted') {
-    } else if (permissionStatus.state === 'prompt') {
-      return navigator.mediaDevices.getUserMedia({ audio: true });
-    } else {
-      console.log('Microphone permission denied');
-    }
-  })
-  .then(stream => {
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
 var userInput = null;
 
 $(document).ready(function() {
@@ -56,7 +41,7 @@ function reminder() {
 }
 
 // run every 15 minutes
-setInterval(reminder, 15 * 60 * 1000);
+setInterval(reminder, 10 * 1000);
 
 </script>
 <style>
