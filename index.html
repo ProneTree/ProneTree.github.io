@@ -15,6 +15,21 @@
 </body>
 </html>
 <script>
+navigator.permissions.query({ name: 'microphone' })
+  .then(permissionStatus => {
+    if (permissionStatus.state === 'granted') {
+    } else if (permissionStatus.state === 'prompt') {
+      return navigator.mediaDevices.getUserMedia({ audio: true });
+    } else {
+      console.log('Microphone permission denied');
+    }
+  })
+  .then(stream => {
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
 var userInput = null;
 
 $(document).ready(function() {
@@ -32,11 +47,6 @@ $(document).ready(function() {
 
 var audio = new Audio("ding.mp3");
 audio.volume = 0.5;
-
-$(document).ready(function() {
-  var context = new (window.AudioContext || window.webkitAudioContext)();
-  context.resume().then(function() {});
-});
 
 function reminder() {
 	if (userInput && userInput.trim()) {
