@@ -21,19 +21,19 @@ $(document).ready(function() {
 		var userInput = textarea.val();
 		localStorage.setItem('input', userInput);
 	});
-	
+
 	var userInput = localStorage.getItem('input');
 	if (userInput) {
 		textarea.val(userInput);
 	}
 });
 
-// var audio = new Audio("ding.mp3");
-// audio.volume = 0.5;
+var audio = new Audio("ding.mp3");
+audio.volume = 0.5;
 
 function reminder() {
 	alert(userInput);
-	// audio.play();	
+	audio.play();	
 }
 
 // run every 15 minutes
