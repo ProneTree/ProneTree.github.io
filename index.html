@@ -15,14 +15,16 @@
 </body>
 </html>
 <script>
+var userInput = null;
+
 $(document).ready(function() {
 	var textarea = $('#reminder');
 	textarea.keyup(function() {
-		var userInput = textarea.val();
+		userInput = textarea.val();
 		localStorage.setItem('input', userInput);
 	});
 
-	var userInput = localStorage.getItem('input');
+	userInput = localStorage.getItem('input');
 	if (userInput) {
 		textarea.val(userInput);
 	}
