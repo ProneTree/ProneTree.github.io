@@ -30,19 +30,6 @@ $(document).ready(function() {
 	}
 });
 
-var audio = new Audio("ding.mp3");
-audio.volume = 0.5;
-
-function reminder() {
-	if (userInput && userInput.trim()) {
-		alert("TODO");
-		audio.play();	
-	}
-}
-
-// run every 15 minutes
-setInterval(reminder, 10 * 1000);
-
 </script>
 <style>
 @import url('https://fonts.cdnfonts.com/css/latin-modern-roman');
