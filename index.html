@@ -12,21 +12,24 @@
 	<textarea id="reminder">
 
 	</textarea>
+	<textarea id="scribble">
+
+	</textarea>
 </body>
 </html>
 <script>
-var userInput = null;
-
 $(document).ready(function() {
-	var textarea = $('#reminder');
-	textarea.keyup(function() {
-		userInput = textarea.val();
-		localStorage.setItem('input', userInput);
-	});
+	var reminder = $('#reminder');
+	var scribble = $('#scribble');
+	reminder.keyup(function() { localStorage.setItem('#reminder', reminder.val()); });
+	scribble.keyup(function() { localStorage.setItem('#scribble', scribble.val()); });
 
-	userInput = localStorage.getItem('input');
-	if (userInput) {
-		textarea.val(userInput);
+	if (localStorage.getItem('#reminder')) {
+		reminder.val(localStorage.getItem('#reminder'));
+	}
+
+	if (localStorage.getItem('#scribble')) {
+		reminder.val(localStorage.getItem('#scribble'));
 	}
 });
 
